@@ -61,6 +61,8 @@ class ViewController: UIViewController {
         view.backgroundColor = .white
         addSubviews()
         configureConstraints()
+        
+        button.addTarget(self, action: #selector(goToTableView), for: .touchUpInside)
     }
 
     // MARK: - Private functions
@@ -106,6 +108,13 @@ class ViewController: UIViewController {
             button.heightAnchor.constraint(equalToConstant: 50),
             
         ])
+    }
+}
+
+@objc private extension ViewController {
+    func goToTableView() {
+        let vc = TableViewController()
+        show(vc, sender: self)
     }
 }
 
